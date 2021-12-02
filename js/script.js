@@ -68,24 +68,25 @@ playBtn.addEventListener("click", function() {
         square.addEventListener("click", function() {
 
             if(this.classList.contains("bomb") && userScore.style.color != "green") {
+
                 exploded = true;
                 userScore.innerHTML = `SCONFITTA: ${score} Punti`;
                 userScore.style.color = "red";
+
                 for(let i = 0; i < numberBombs; i++) {
                     
                     document.querySelectorAll(".bomb")[i].classList.add("wrong");
                 }
 
             }
-            else if(!exploded && userScore.style.color != "green"){
-                if(!(this.classList.contains("correct"))) {
-                    this.classList.add("correct");
-                    score++;
-                    userScore.innerHTML = `Punteggio: ${score}`;
-                }
-                
+            else if(!exploded && !(this.classList.contains("correct"))){
 
+                this.classList.add("correct");
+                score++;
+                userScore.innerHTML = `Punteggio: ${score}`;
+                
                 if(numberSquare - blackList.length == score) {
+
                     userScore.innerHTML = `VITTORIA: ${score} Punti`;
                     userScore.style.color = "green";
                 }
@@ -94,9 +95,8 @@ playBtn.addEventListener("click", function() {
         });
         
         battleground.append(square);
-
     }
-    
+      
     });
 
 
