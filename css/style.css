@@ -1,0 +1,109 @@
+:root {
+    --square: 8;
+
+    --correct: #2ec48b;
+    --wrong: #e71d36;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* NAVBAR */
+
+.navbar {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-nav{
+    margin-left: 15px; 
+}
+.right-nav {
+    margin-right: 15px;
+}
+.logo {
+    margin-right: 10px;
+    vertical-align: top;
+}
+.game-title {
+    font-size: 3rem;
+    display: inline-block;
+}
+
+/* MAIN */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 80px - 60px);
+    background-color: lightgray;
+}
+
+.battleground {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
+    width: 500px;
+    height: 500px;
+}
+
+.punteggio {
+    margin-top: 30px;
+    font-size: 3rem;
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% / var(--square));
+    height: calc(100% / var(--square));
+    cursor: pointer;
+    border: outset;
+    color: transparent; /*-------*/
+}
+
+#difficult {
+    padding: 10px 5px;
+    border: 3px solid var(--correct);
+    border-radius: 20px;
+    outline: none;
+}
+
+#play {
+    margin-left: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    text-transform: uppercase;
+    background-color: rgb(97, 136, 168);
+    color: white;
+}
+
+.correct {
+    border: inset;
+    opacity: 0.3;
+}
+.wrong {
+    background-color: var(--wrong);
+    border: inset;
+    color: transparent; /*-------*/
+}
+
+/* FOOTER */
+footer {
+    height: 60px;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
