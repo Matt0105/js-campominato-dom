@@ -32,7 +32,7 @@ playBtn.addEventListener("click", function() {
     blackList = [];
     battleground.innerHTML = "";
     userScore.style.color = "black";
-    userScore.innerHTML = "Score: 0";
+    userScore.innerHTML = "Punteggio: 0";
 
     if(choice.value == "easy") {
         numberSquare = 100;
@@ -71,6 +71,7 @@ playBtn.addEventListener("click", function() {
 
             if(this.classList.contains("bomb") && userScore.style.color != "green") {
                 exploded = true;
+                userScore.innerHTML = `SCONFITTA: ${score} Punti`;
                 userScore.style.color = "red";
                 for(let i = 0; i < numberBombs; i++) {
                     
@@ -82,11 +83,12 @@ playBtn.addEventListener("click", function() {
                 if(!(this.classList.contains("correct"))) {
                     this.classList.add("correct");
                     score++;
-                    userScore.innerHTML = `Score: ${score}`;
+                    userScore.innerHTML = `Punteggio: ${score}`;
                 }
                 
 
                 if(numberSquare - blackList.length == score) {
+                    userScore.innerHTML = `VITTORIA: ${score} Punti`;
                     userScore.style.color = "green";
                 }
             }
