@@ -69,7 +69,7 @@
     height: calc(100% / var(--square));
     cursor: pointer;
     border: outset;
-    color: transparent; /*-------*/
+    /* color: transparent; ------- */
 }
 
 #difficult {

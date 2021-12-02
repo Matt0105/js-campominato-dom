@@ -13,7 +13,7 @@ function bombGenerator(nBombs, blackList) {
     return blackList;
 }
 let blackList = [];
-const numberBombs = 16;
+const numberBombs = 1;
 
 //---------------------------------
 const battleground = document.querySelector(".battleground");
@@ -69,7 +69,7 @@ playBtn.addEventListener("click", function() {
         
         square.addEventListener("click", function() {
 
-            if(this.classList.contains("bomb")) {
+            if(this.classList.contains("bomb") && userScore.style.color != "green") {
                 exploded = true;
                 userScore.style.color = "red";
                 for(let i = 0; i < numberBombs; i++) {
@@ -78,10 +78,17 @@ playBtn.addEventListener("click", function() {
                 }
 
             }
-            else if(!exploded){
-                this.classList.add("correct");
-                score++;
-                userScore.innerHTML = `Score: ${score}`;
+            else if(!exploded && userScore.style.color != "green"){
+                if(!(this.classList.contains("correct"))) {
+                    this.classList.add("correct");
+                    score++;
+                    userScore.innerHTML = `Score: ${score}`;
+                }
+                
+
+                if(numberSquare - blackList.length == score) {
+                    userScore.style.color = "green";
+                }
             }
 
 
