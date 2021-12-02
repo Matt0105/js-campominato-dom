@@ -13,7 +13,7 @@ function bombGenerator(nBombs, blackList) {
     return blackList;
 }
 let blackList = [];
-const numberBombs = 1;
+const numberBombs = 16;
 
 //---------------------------------
 const battleground = document.querySelector(".battleground");
@@ -49,7 +49,7 @@ playBtn.addEventListener("click", function() {
 
     blackList = bombGenerator(numberBombs, blackList);
 
-    console.log(blackList);
+    // console.log(blackList);
     let exploded = false;
     
     for(let i = 0; i < numberSquare; i++) {
