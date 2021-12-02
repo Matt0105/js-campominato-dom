@@ -1,19 +1,18 @@
 
-function bombGenerator(nBombs, blackList) {
+function bombGenerator(nBombs, blackList, nSquare) {
 
     for(let i = 0; i < nBombs; i++) {
 
-        let randomBomb = Math.floor(Math.random() * numberSquare) + 1;
+        let randomBomb = Math.floor(Math.random() * nSquare) + 1;
         while(blackList.includes(randomBomb)) {
-            randomBomb = Math.floor(Math.random() * numberSquare) + 1;
+            randomBomb = Math.floor(Math.random() * nSquare) + 1;
         }
         blackList.push(randomBomb);
     }
 
     return blackList;
 }
-let blackList = [];
-const numberBombs = 16;
+
 
 //---------------------------------
 const battleground = document.querySelector(".battleground");
@@ -21,15 +20,16 @@ const choice = document.getElementById("difficult");
 const playBtn = document.getElementById("play");
 const userScore = document.querySelector(".punteggio");
 
-let numberSquare;
-let squareSide;
+
 
 playBtn.addEventListener("click", function() {
-
+    
+    const numberBombs = 16; 
+    let blackList = [];
+    let numberSquare;
+    let squareSide;
     let score = 0;
 
-    
-    blackList = [];
     battleground.innerHTML = "";
     userScore.style.color = "black";
     userScore.innerHTML = "Punteggio: 0";
@@ -47,13 +47,12 @@ playBtn.addEventListener("click", function() {
         squareSide = 7;
     }
 
-    blackList = bombGenerator(numberBombs, blackList);
+    blackList = bombGenerator(numberBombs, blackList, numberSquare);
 
     // console.log(blackList);
     let exploded = false;
     
     for(let i = 0; i < numberSquare; i++) {
-
 
         const square = document.createElement("div");
         square.classList.add("square");
@@ -66,7 +65,6 @@ playBtn.addEventListener("click", function() {
             square.classList.add("bomb");
         }
 
-        
         square.addEventListener("click", function() {
 
             if(this.classList.contains("bomb") && userScore.style.color != "green") {
@@ -92,7 +90,6 @@ playBtn.addEventListener("click", function() {
                     userScore.style.color = "green";
                 }
             }
-
 
         });
         
