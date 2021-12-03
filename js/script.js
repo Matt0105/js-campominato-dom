@@ -14,13 +14,10 @@ function bombGenerator(nBombs, blackList, nSquare) {
 }
 
 
-//---------------------------------
 const battleground = document.querySelector(".battleground");
 const choice = document.getElementById("difficult");
 const playBtn = document.getElementById("play");
 const userScore = document.querySelector(".punteggio");
-
-
 
 playBtn.addEventListener("click", function() {
     
@@ -96,7 +93,7 @@ playBtn.addEventListener("click", function() {
         
         battleground.append(square);
     }
-      
+
     });
 
 
